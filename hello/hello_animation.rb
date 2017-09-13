@@ -49,8 +49,6 @@ class Explosion
   def frame_expired?
     now = Gosu.milliseconds
     @last_frame ||= now
-    if (now - @last_frame) > FRAME_DELAY
-      @last_frame = now
-    end
+    return @last_frame = now if (now - @last_frame) > FRAME_DELAY
   end
 end
