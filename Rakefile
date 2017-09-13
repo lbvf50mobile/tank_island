@@ -1,3 +1,3 @@
 task :default do
-  ruby 'start.rb'
+  ruby 'hello/start.rb'
 end
