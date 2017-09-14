@@ -22,12 +22,10 @@ class Explosion
     @current_frame = 0
   end
 
-  # TODO: because it's frime_expired always truly it's seems like this always add+1
   def update
     @current_frame += 1 if frame_expired?
   end
 
-  # TODO: Take a look it dose not returns true, it returns nill
   def draw
     return if done?
     image = current_frame
@@ -48,11 +46,11 @@ class Explosion
     @animation[@current_frame % @animation.size]
   end
 
-  # TODO: this looks interestng too, this frame_expried? alway return true.
   def frame_expired?
     now = Gosu.milliseconds
     @last_frame ||= now
-    return @last_frame = now if (now - @last_frame) > FRAME_DELAY
+    return  false if (now - @last_frame) < FRAME_DELAY
+    @last_frame = now 
   end
 end
 
@@ -69,7 +67,6 @@ class GameWindow < Gosu::Window
     @explosion = []
   end
 
-  # TODO: Looks like reject!(&:done?) dose not do aniting
   def update
     @explosion.reject!(&:done?)
     @explosion.map(&:update)
