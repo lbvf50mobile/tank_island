@@ -16,8 +16,9 @@ class Explosion
   end
 
   def self.load_sound(window)
+    # https://github.com/gosu/gosu/issues/393#issuecomment-290483564
     Gosu::Sample.new(
-      window, media_path('explosion.mp3')
+      window, media_path('explosion.ogg')
     )
   end
 
