@@ -73,6 +73,11 @@ class GameWindow < Gosu::Window
     @background = Gosu::Image.new(
       BACKGROUND
     )
+    @music = Gosu::Song.new(
+      self, media_path('menu_music.ogg')
+    )
+    @music.volume = 0.5
+    @music.play(true)
     @animation = Explosion.load_animation(self)
     @sound = Explosion.load_sound(self)
     @explosion = []
