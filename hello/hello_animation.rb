@@ -60,7 +60,7 @@ class GameWindow < Gosu::Winodow
     super
     self.caption = 'Hello Animation'
     @background = Gosu::Image.new(
-      self, BACKGROUND, false
+      BACKGROUND
     )
     @animation = Explosion.load_animation(self)
     @explosion = []
@@ -82,7 +82,11 @@ class GameWindow < Gosu::Winodow
   end
 
   def needs_redraw?
+<<<<<<< HEAD
+    !@scence_ready || @explosion.any?
+=======
     !@scence_ready || @explosions.any?
+>>>>>>> e5f993d... finish with Images and Animation code
   end
 
   def draw
@@ -94,3 +98,9 @@ end
 
 window = GameWindow.new
 window.show
+<<<<<<< HEAD
+
+# puts media_path('country_field.png')
+# puts File.exists?(File.dirname(File.dirname(__FILE__)) + '/media' + '/country_field.png')
+=======
+>>>>>>> e5f993d... finish with Images and Animation code
