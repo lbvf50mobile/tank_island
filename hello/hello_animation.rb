@@ -52,3 +52,45 @@ class Explosion
     return @last_frame = now if (now - @last_frame) > FRAME_DELAY
   end
 end
+
+# Game winodw
+class GameWindow < Gosu::Winodow
+  BACKGROUND = media_path('country_field.png')
+  def initialize(width = 800, height = 600, fullscreen = false)
+    super
+    self.caption = 'Hello Animation'
+    @background = Gosu::Image.new(
+      self, BACKGROUND, false
+    )
+    @animation = Explosion.load_animation(self)
+    @explosion = []
+  end
+
+  def update
+    @explosion.reject!(&:done?)
+    @explosion.map(&:update)
+  end
+
+  def button_down(id)
+    close if Gosu::KbEscape == id
+    return unless Gosu::MsLeft == id
+    @explosion.push(Explosion.new(@animation, mouse_x, mouse_y))
+  end
+
+  def needs_cursor?
+    true
+  end
+
+  def needs_redraw?
+    !@scence_ready || @explosions.any?
+  end
+
+  def draw
+    @scence_ready ||= true
+    @background.draw(0, 0, 0)
+    @explosion.map(&:draw)
+  end
+end
+
+window = GameWindow.new
+window.show
