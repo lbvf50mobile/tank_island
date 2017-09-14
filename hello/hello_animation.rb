@@ -54,7 +54,7 @@ class Explosion
 end
 
 # Game winodw
-class GameWindow < Gosu::Winodow
+class GameWindow < Gosu::Window
   BACKGROUND = media_path('country_field.png')
   def initialize(width = 800, height = 600, fullscreen = false)
     super
@@ -82,11 +82,7 @@ class GameWindow < Gosu::Winodow
   end
 
   def needs_redraw?
-<<<<<<< HEAD
     !@scence_ready || @explosion.any?
-=======
-    !@scence_ready || @explosions.any?
->>>>>>> e5f993d... finish with Images and Animation code
   end
 
   def draw
@@ -98,9 +94,3 @@ end
 
 window = GameWindow.new
 window.show
-<<<<<<< HEAD
-
-# puts media_path('country_field.png')
-# puts File.exists?(File.dirname(File.dirname(__FILE__)) + '/media' + '/country_field.png')
-=======
->>>>>>> e5f993d... finish with Images and Animation code
