@@ -1,4 +1,5 @@
 require 'json'
+require 'gosu'
 
 # class to get images from tileset
 class Tileset
