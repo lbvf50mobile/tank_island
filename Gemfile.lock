@@ -1,11 +1,17 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    gosu (0.12.1-x64-mingw32)
+    gosu_texture_packer (0.1.6)
+      gosu
+      json
+    json (2.1.0)
 
 PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  gosu_texture_packer
 
 BUNDLED WITH
    1.13.0

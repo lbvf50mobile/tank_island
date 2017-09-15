@@ -2,4 +2,4 @@
 source "https://rubygems.org"
 
 # gem "rails"
-gem 'gosu-texture-packer'
+gem 'gosu_texture_packer'
